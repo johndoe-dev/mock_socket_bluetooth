@@ -7,14 +7,25 @@ import time
 class SocketClient:
 
     def __init__(self, host, port):
-        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.socket = None
         self.host = host
         self.port = port
 
     def connect(self):
-        self.socket.connect((self.host, self.port))
+        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        print("socket is created")
+        try:
+            self.socket.connect((self.host, self.port))
+            print("socket is connected")
+            return True
+        except socket.error as e:
+            print("Make sure receiver is active")
+            return False
 
     def start_sending(self, number_sending=-1, time_laps=5):
+        if not self.socket:
+            print("Make sure to call connect() before")
+            return
         i = 0
         try:
             while True:
