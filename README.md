@@ -169,3 +169,37 @@ mac_address: 02:00:00:80:61:bd rssi: ['-79']
 mac_address: 02:00:00:a6:7e:ac rssi: ['-87']
 
 ```
+
+
+## Test
+
+To run test, you must install __pytest__ and __pytest-cov__
+
+run:
+
+``` shell script
+$ pip install pytest pytest-cov
+```
+
+or
+
+``` shell script
+$ pip install -r requirements.txt
+```
+
+
+Now, to test the project, run:
+
+``` shell script
+pytest "tests/"
+```
+
+#### Coverage
+
+To run test with coverage:
+
+``` shell script
+pytest "tests/" --cov="socket_client" --cov-report html
+```
+
+Now  you can open the file __htmlcov/index.html__ in your browser

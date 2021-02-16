@@ -18,4 +18,6 @@ if not connected:
     sys.exit(0)
 
 
-s.start_sending(5)
+response = s.start_sending(5)
+
+print(response['message'])
