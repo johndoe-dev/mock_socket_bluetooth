@@ -19,7 +19,7 @@ class SocketClient:
             print("socket is connected")
             return True
         except socket.error as e:
-            print("Make sure receiver is active")
+            print(f"Make sure receiver is active, error: {e}")
             return False
 
     def start_sending(self, number_sending=-1, time_laps=5):
@@ -36,15 +36,13 @@ class SocketClient:
                 print(f"data send: {data}")
                 time.sleep(time_laps)
                 i += 1
-                if number_sending > 0:
-                    if i == number_sending:
-                        response['message'] = f"{number_sending} data send"
-                        response['status'] = True
-                        break
+                if number_sending == i:
+                    response['message'] = f"{number_sending} data send"
+                    response['status'] = True
+                    break
         except KeyboardInterrupt:
             response['message'] = "[!] Keyboard Interrupted!"
             response['status'] = True
-            pass
 
         self.socket.close()
 
