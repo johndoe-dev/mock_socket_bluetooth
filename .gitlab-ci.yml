@@ -29,7 +29,7 @@ sonar:
   image: ciricihq/gitlab-sonar-scanner
   stage: test
   dependencies:
-    - sbapi:build
+    - build
 
   script:
     - >
