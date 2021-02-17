@@ -194,12 +194,25 @@ Now, to test the project, run:
 pytest "tests/"
 ```
 
-#### Coverage
+### Coverage
 
-To run test with coverage:
+#### HTML
+
+To run test with coverage in html:
 
 ``` shell script
-pytest "tests/" --cov="socket_client" --cov-report html
+pytest "tests/" --cov="app" --cov-report html
 ```
 
 Now  you can open the file __htmlcov/index.html__ in your browser
+
+
+#### XML
+
+To run test with coverage in xml:
+
+``` shell script
+pytest "tests/" --junitxml=pytest-report.xml --cov="app" --cov-report xml
+``` 
+
+It will generate 2 files __pytest-report.xml__ and __coverage.xml__ (this files are requested for sonar)

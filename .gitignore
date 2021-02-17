@@ -2,7 +2,16 @@
 venv/
 .DS_Store
 __pycache__
+htmlcov/
+
+# build
+*.egg-*
+build/
+dist/
+
+# tests
 .pytest_cache
 .coverage
-htmlcov/
+coverage.xml
+pytest-report.xml
 
