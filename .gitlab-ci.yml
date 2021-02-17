@@ -17,7 +17,7 @@ build:
   stage: build
   script:
     - pip install -r requirements.txt
-    - pytest "tests/" --junitxml=$CI_PROJECT_DIR/pytest-report.xml --cov="app" --cov-report xml
+    - pytest "tests/" --junitxml=$CI_PROJECT_DIR/pytest-report.xml --cov="socket_client" --cov-report xml
   artifacts:
     paths:
       - $CI_PROJECT_DIR/pytest-report.xml
